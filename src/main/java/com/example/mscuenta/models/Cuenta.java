@@ -19,5 +19,7 @@ public class Cuenta {
     private String tipoCuenta;
     private BigDecimal saldoInicial;
     private Boolean estado;
+    private Long idCliente;
+    private String cliente;
 
 }

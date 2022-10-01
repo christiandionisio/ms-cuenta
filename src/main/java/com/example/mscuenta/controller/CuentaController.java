@@ -22,6 +22,14 @@ public class CuentaController {
         return ResponseEntity.ok().body(service.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Cuenta> update(@PathVariable Long id) {
+        Cuenta cuentaDB = service.findById(id);
+        return (cuentaDB == null)
+                ? ResponseEntity.notFound().build()
+                : ResponseEntity.ok().body(cuentaDB);
+    }
+
     @PostMapping
     public ResponseEntity<Cuenta> create(@RequestBody Cuenta cuenta) {
 
