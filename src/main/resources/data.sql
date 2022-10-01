@@ -1,0 +1,2 @@
+INSERT INTO CUENTA (id, numero_cuenta, tipo_cuenta, saldo_inicial, estado) VALUES (101, '123564', 'AHORRO', 2000, true);
+INSERT INTO CUENTA (id, numero_cuenta, tipo_cuenta, saldo_inicial, estado) VALUES (102, '647544', 'CORRIENTE', 3000, true);
