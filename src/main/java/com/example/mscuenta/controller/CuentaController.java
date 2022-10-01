@@ -23,8 +23,16 @@ public class CuentaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cuenta> update(@PathVariable Long id) {
+    public ResponseEntity<Cuenta> findById(@PathVariable Long id) {
         Cuenta cuentaDB = service.findById(id);
+        return (cuentaDB == null)
+                ? ResponseEntity.notFound().build()
+                : ResponseEntity.ok().body(cuentaDB);
+    }
+
+    @GetMapping("/numeroCuenta/{nroCuenta}")
+    public ResponseEntity<Cuenta> findByNumeroCuenta(@PathVariable String nroCuenta) {
+        Cuenta cuentaDB = service.findByNumeroCuenta(nroCuenta);
         return (cuentaDB == null)
                 ? ResponseEntity.notFound().build()
                 : ResponseEntity.ok().body(cuentaDB);

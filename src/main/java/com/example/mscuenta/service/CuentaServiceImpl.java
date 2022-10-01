@@ -30,6 +30,11 @@ public class CuentaServiceImpl implements CuentaService{
     }
 
     @Override
+    public Cuenta findByNumeroCuenta(String numeroCuenta) {
+        return repository.findByNumeroCuenta(numeroCuenta);
+    }
+
+    @Override
     public Cuenta create(Cuenta cuenta) {
         ResponseEntity<ClienteDto> response = restTemplate.getForEntity(resourceUrl + "/{id}",
                 ClienteDto.class, cuenta.getIdCliente());
