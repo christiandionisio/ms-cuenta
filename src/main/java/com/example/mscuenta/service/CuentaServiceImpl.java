@@ -4,6 +4,7 @@ import com.example.mscuenta.dto.ClienteDto;
 import com.example.mscuenta.models.Cuenta;
 import com.example.mscuenta.repo.CuentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +18,9 @@ public class CuentaServiceImpl implements CuentaService{
     private CuentaRepository repository;
 
     RestTemplate restTemplate = new RestTemplate();
-    String resourceUrl = "http://localhost:8080/clientes";
+
+    @Value("${resource-cliente-url}")
+    String resourceUrl;
 
     @Override
     public List<Cuenta> findAll() {
